@@ -1,20 +1,20 @@
 <template>
-  <div class="signup-card" v-show="this.isDisplayed">
+  <div class="signup-card">
     <h2>회원가입</h2>
     <form method="post">
       <fieldset>
         <legend>회원가입</legend>
         <label>
-          <input type="email" class="id" placeholder="이메일" required>
+          <input type="email" class="id" placeholder="이메일" required v-model="signEmail">
         </label>
         <label>
-          <input type="text" class="user-name" placeholder="닉네임" required>
+          <input type="text" class="user-name" placeholder="닉네임" required v-model="signName">
         </label>
         <label>
-          <input type="password" class="pw" placeholder="비밀번호" required>
+          <input type="password" class="pw" placeholder="비밀번호" required v-model="signPw">
         </label>
         <label>
-          <input type="password" class="pw-validation" placeholder="비밀번호 한 번 더" required>
+          <input type="password" class="pw-validation" placeholder="비밀번호 한 번 더" required v-model="signPwValidation">
         </label>
       </fieldset>
       <button type="submit" class="signup-btn" @click="signUp($event)">회원가입</button>
@@ -22,7 +22,8 @@
     <span class="signup-options">또는 아래 계정으로 회원가입</span>
     <a href="#">facebook</a>
     <a href="#">google</a>
-    <a href="#" class="member-login">이미 계정이 있다면 로그인</a>
+    <!-- <a href="#" class="member-login" @click.prevent="$emit('goLogin')">이미 계정이 있다면 로그인</a> -->
+    <a href="#" class="member-login" @click.prevent="$emit('changeMode')">이미 계정이 있다면 로그인</a>
   </div>
 </template>
 
@@ -31,32 +32,58 @@
 // 회원가입 선택할 때 카드를 뒤집어야 함
 // 내용 통신해야함
 
+import axios from 'axios';
+
 export default {
   name: 'signup-card',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      isDisplayed: false
+      // isDisplayed: false,
+      signEmail: '',
+      signName: '',
+      signPw: '',
+      signPwValidation: ''
     }
   },
-  created : function() {
-    let me = this;
-    this.$parent.eventBus.$on('signUp', function() {
-        console.log('on signUp');
-        me.isDisplayed = true;
-    });
-  },
   methods: {
-    logIn: function(e){
-      if (e) { e.preventDefault(); }
-      this.$http.get('http://www.naver.com').then((response) => {
-        console.log(response.data)
-      })
-      console.log('로그인 버튼을 눌렀습니다');
-    },
     signUp: function(e){
+      // 기본 이벤트 막으면 required나 input 타입 설정해둔 것, 타입 체크 모두 되지 않음
+      // 유효성 검사
+      if (!this.signEmail || !this.signName || !this.signPw || !this.signPwValidation) { console.error('양식에 맞게 내용을 작성해 주세요');}
+      // 안 맞으면 return
+      // 그다음에 prevent 후 처리 (prevent 안에 유효성 체크도 포함되어 있음)
+
       if (e) { e.preventDefault(); }
-      console.log('회원가입 버튼을 눌렀습니다');
+      // console.log('회원가입 버튼을 눌렀습니다');
+      // domain/path?query(={})
+      axios.post('http://localhost:3000/member', {
+        email: this.signEmail,
+        password: this.signPw,
+        nickname: this.signName,
+        validation: this.signPwValidation
+      })
+      .then(response => {
+        console.log(response);
+        if (response.status === 201 && response.statusText === 'Created') {
+          console.log('then 실행');
+          // then 부분 실행 안됌
+          this.signEmail = '';
+          this.signPw = '';
+          this.signName = '';
+          this.signPwValidation = '';
+          window.alert(response.data.nickname + '님, 환영합니다!');
+          location.hash = '/forgot'
+          // location.href? 조회 페이지로 랜딩하게 하자
+        }
+      })
+      .catch(error => {
+        this.signEmail = '';
+        this.signPw = '';
+        this.signName = '';
+        this.signPwValidation = '';
+        window.alert('회원 가입에 실패했습니다ㅠㅠ');
+      });
     }
   }
 }
@@ -65,19 +92,15 @@ export default {
 <style lang="sass">
   html
     font-size: 16px
-  .member
     display: flex
-    justify-content: center
-    align-items: center
-    // background: #181818
-    // opacity: 0.5
-    position: relative
 
   // signup card
   .signup-card
+    background: #fff
     position: absolute
     width: 400px
     height: 500px
+    z-index: 100
     border: 1px solid #e6e6e6
     border-radius: 5px
     padding: 30px

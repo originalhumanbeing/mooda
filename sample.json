@@ -1,0 +1,235 @@
+{
+  "member": [
+    {
+      "id": 1,
+      "email": "",
+      "password": "",
+      "nickname": "",
+      "validation": ""
+    },
+    {
+      "email": "a@a",
+      "password": "a",
+      "nickname": "a",
+      "validation": "a",
+      "id": 2
+    },
+    {
+      "email": "a@a",
+      "password": "a",
+      "id": 3
+    },
+    {
+      "email": "a@a",
+      "password": "a",
+      "id": 4
+    },
+    {
+      "email": "a",
+      "password": "",
+      "nickname": "",
+      "validation": "",
+      "id": 5
+    },
+    {
+      "email": "b@b.b",
+      "password": "b",
+      "nickname": "b",
+      "validation": "b",
+      "id": 6
+    },
+    {
+      "email": "a@a",
+      "password": "a",
+      "id": 7
+    },
+    {
+      "email": "dfdf",
+      "password": "",
+      "nickname": "",
+      "validation": "",
+      "id": 8
+    },
+    {
+      "email": "dfdf",
+      "password": "",
+      "nickname": "",
+      "validation": "",
+      "id": 9
+    },
+    {
+      "email": "c@c.c",
+      "password": "c",
+      "nickname": "c",
+      "validation": "c",
+      "id": 10
+    },
+    {
+      "email": "c@c.c",
+      "password": "c",
+      "nickname": "c",
+      "validation": "c",
+      "id": 11
+    },
+    {
+      "email": "c@c.c",
+      "password": "c",
+      "nickname": "c",
+      "validation": "c",
+      "id": 12
+    },
+    {
+      "email": "c@c.c",
+      "password": "c",
+      "nickname": "c",
+      "validation": "c",
+      "id": 13
+    },
+    {
+      "email": "c",
+      "password": "",
+      "nickname": "",
+      "validation": "",
+      "id": 14
+    },
+    {
+      "email": "c",
+      "password": "",
+      "nickname": "",
+      "validation": "",
+      "id": 15
+    },
+    {
+      "email": "c@c.c",
+      "password": "c",
+      "nickname": "c",
+      "validation": "c",
+      "id": 16
+    },
+    {
+      "email": "c@c.c",
+      "password": "c",
+      "nickname": "c",
+      "validation": "c",
+      "id": 17
+    },
+    {
+      "email": "c@c.c",
+      "password": "c",
+      "nickname": "c",
+      "validation": "c",
+      "id": 18
+    },
+    {
+      "email": "d@d.d",
+      "password": "d",
+      "nickname": "d",
+      "validation": "d",
+      "id": 19
+    },
+    {
+      "email": "d@d.d",
+      "password": "d",
+      "nickname": "d",
+      "validation": "d",
+      "id": 20
+    },
+    {
+      "email": "d@d.d",
+      "password": "d",
+      "nickname": "d",
+      "validation": "d",
+      "id": 21
+    },
+    {
+      "email": "d@d.d",
+      "password": "d",
+      "nickname": "d",
+      "validation": "d",
+      "id": 22
+    },
+    {
+      "email": "e@e.e",
+      "password": "e",
+      "nickname": "e",
+      "validation": "e",
+      "id": 23
+    },
+    {
+      "email": "f@f.f",
+      "password": "f",
+      "nickname": "f",
+      "validation": "f",
+      "id": 24
+    },
+    {
+      "email": "f@f.f",
+      "password": "f",
+      "nickname": "f",
+      "validation": "f",
+      "id": 25
+    },
+    {
+      "email": "a@a.a",
+      "password": "a",
+      "autologin": true,
+      "id": 26
+    },
+    {
+      "email": "a@a",
+      "password": "a",
+      "autologin": true,
+      "id": 27
+    },
+    {
+      "email": "",
+      "password": "",
+      "autologin": false,
+      "id": 28
+    },
+    {
+      "email": "c@c.c",
+      "password": "c",
+      "autologin": false,
+      "id": 29
+    },
+    {
+      "email": "aaa@aaa.net",
+      "password": "aaa",
+      "nickname": "aaa",
+      "validation": "aaa",
+      "id": 30
+    },
+    {
+      "email": "bbb@bbb.net",
+      "password": "bbb",
+      "nickname": "bbb",
+      "validation": "bbb",
+      "id": 31
+    },
+    {
+      "email": "",
+      "password": "",
+      "nickname": "",
+      "validation": "",
+      "id": 32
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

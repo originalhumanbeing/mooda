@@ -1,22 +1,22 @@
 <template>
-  <div class="login-card" v-show="this.isDisplayed">
+  <div class="login-card">
     <h2>로그인</h2>
     <form method="get">
       <fieldset>
         <legend>로그인</legend>
         <label>
-          <input type="email" class="id" placeholder="이메일" required>
+          <input type="email" class="id" placeholder="이메일" required v-model="logEmail">
         </label>
         <label>
-          <input type="password" class="pw" placeholder="비밀번호" required>
+          <input type="password" class="pw" placeholder="비밀번호" required v-model="logPw">
         </label>
-        <label>
-          <input type="checkbox" class="auto-login"> 자동 로그인
-        </label>
+        <!-- <label>
+          <input type="checkbox" class="auto-login" v-model="autoLogIn"> 자동 로그인
+        </label> -->
       </fieldset>
       <button type="submit" class="login-btn" @click="logIn($event)">로그인</button>
-      <!--로그인이 되면 입력창으로 랜딩-->
-      <button type="submit" class="signup-btn"  @click="goSignUp($event)">회원가입</button>
+      <!-- <button type="submit" class="signup-btn" @click.prevent="$emit('goSignup')">회원가입</button> -->
+      <button type="submit" class="signup-btn" @click.prevent="$emit('changeMode')">회원가입</button>
     </form>
     <a href="#/forgot" class="id-finder">계정이 기억나지 않아요ㅠㅠ</a>
     <span class="login-options">또는 아래 계정으로 로그인</span>
@@ -26,29 +26,46 @@
 </template>
 
 <script>
+import axios from 'axios';
 // 모달을 띄워야 함
 // 회원가입 선택할 때 카드를 뒤집어야 함
 // 내용 통신해야함
+
 export default {
   name: 'login-card',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      isDisplayed: true
+      isDisplayed: true,
+      logEmail: '',
+      logPw: '',
+      autoLogIn: false
     }
   },
   methods: {
     logIn: function(e){
       if (e) { e.preventDefault(); }
-      this.$http.get('http://www.naver.com').then((response) => {
-        console.log(response.data)
+      console.log(this.email);
+      axios.get('http://localhost:3000/member', {
+        params : {
+          email: this.logEmail,
+          password: this.logPw
+        }
       })
-      console.log('로그인 버튼을 눌렀습니다');
-    },
-    goSignUp: function(e){
-      if (e) { e.preventDefault() }
-      this.$parent.eventBus.$emit('signUp');
-      this.isDisplayed = false;
+      .then(response => {
+          this.logEmail = '';
+          this.logPw = '';
+          console.log(response)
+          window.alert(response.data[0].nickname+'님, 반갑습니다!');
+          // 왜 undefined님으로 뜨지?
+          location.hash = '/forgot'
+        }
+      )
+      .catch(error => {
+        this.logEmail = '';
+        this.logPw = '';
+        window.alert('회원 정보가 존재하지 않습니다');
+      })
     }
   }
 }
@@ -57,19 +74,14 @@ export default {
 <style lang="sass">
   html
     font-size: 16px
-  .member
-    display: flex
-    justify-content: center
-    align-items: center
-    // background: #181818
-    // opacity: 0.5
-    position: relative
 
   // login card
   .login-card
+    background: #fff
     position: absolute
     width: 400px
     height: 500px
+    z-index: 100
     border: 1px solid #e6e6e6
     border-radius: 5px
     padding: 30px
@@ -104,10 +116,10 @@ export default {
       font-weight: 300
     & .pw
       margin-bottom: 30px
-    & .auto-login
-      position: absolute
-      top: 170px
-      left: 135px
+    // & .auto-login
+    //   position: absolute
+    //   top: 170px
+    //   left: 135px
 
   // 버튼
   form
