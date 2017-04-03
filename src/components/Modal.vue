@@ -2,7 +2,6 @@
   <div id="modal" v-if="popUpModal">
     <div class="card-wrapper">
       <slot></slot>
-      <button type="button" class="modal-btn" @click.prevent="$emit('closeModal')">X</button>
     </div>
   </div>
 </template>
@@ -21,7 +20,10 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
+  html
+    box-sizing: content-box
+
   #modal
     background: rgba(122, 122, 122, 0.6)
     position: fixed
@@ -40,15 +42,15 @@ export default {
     justify-content: center
     align-items: center
 
-  .modal-btn
-    position: absolute
-    top: 25px
-    right: -260px
-    z-index: 300
-    border: 0
-    // border-radius: 100%
-    background: transparent
-    color: #fff
-    font-weight: bold
-    font-size: 1.2em
+  // .modal-btn
+  //   position: absolute
+  //   top: 25px
+  //   right: -260px
+  //   z-index: 300
+  //   border: 0
+  //   // border-radius: 100%
+  //   background: transparent
+  //   color: #fff
+  //   font-weight: bold
+  //   font-size: 1.2em
 </style>

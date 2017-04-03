@@ -1,12 +1,12 @@
 <template>
   <div id="member">
     <button type="button" name="button" v-if="hideModalBtn" @click="showModal()">Show</button>
+    <a href="#/input">input</a>
+    <a href="#/today">today</a>
     <modal v-if="popUpModal" @closeModal="closeModal">
       <transition enter-active-class="animated flipInY" leave-active-class="animated flipOutY" duration="450" mode="out-in" appear>
         <component @changeMode="changeView" :is="component_selected"></component>
       </transition>
-      <!-- <login v-if="showLogin" @goSignup="showLogin = false"></login>
-      <signup v-else @goLogin="showLogin = true"></signup> -->
     </modal>
   </div>
 </template>
@@ -56,16 +56,18 @@ export default {
 }
 </script>
 
-<style lang="sass">
-  // 앞장이 로그인
-  // 뒷장이 회원가입
-  // 로그인에서 회원가입을 누르면 회전
-  // 회원가입에서도 로그인 누르면 회전
+<style lang="sass" scoped>
+  html
+    // box-sizing: content-box
 
   #member
     display: flex
     justify-content: center
     align-items: center
+
+  #member *
+    display: block
+    margin: 20px
 
   .modal
     z-index: 10

@@ -43,6 +43,10 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  .input-card
+    width: 50%
+    margin: 60px auto
+
   .input-area
     display: block
     width: 90%

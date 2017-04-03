@@ -10,36 +10,39 @@
         <label>
           <input type="password" class="pw" placeholder="비밀번호" required v-model="logPw">
         </label>
-        <!-- <label>
-          <input type="checkbox" class="auto-login" v-model="autoLogIn"> 자동 로그인
-        </label> -->
       </fieldset>
       <button type="submit" class="login-btn" @click="logIn($event)">로그인</button>
-      <!-- <button type="submit" class="signup-btn" @click.prevent="$emit('goSignup')">회원가입</button> -->
       <button type="submit" class="signup-btn" @click.prevent="$emit('changeMode')">회원가입</button>
     </form>
     <a href="#/forgot" class="id-finder">계정이 기억나지 않아요ㅠㅠ</a>
     <span class="login-options">또는 아래 계정으로 로그인</span>
     <a href="#">facebook</a>
     <a href="#">google</a>
+    <button type="button" class="modal-btn" @click.prevent="$emit('closeModal')">X</button>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-// 모달을 띄워야 함
-// 회원가입 선택할 때 카드를 뒤집어야 함
-// 내용 통신해야함
+
+// facebook 객체 생성
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1417815134942670',
+    xfbml      : true,
+    version    : 'v2.8'
+  });
+  FB.AppEvents.logPageView();
+};
 
 export default {
   name: 'login-card',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      isDisplayed: true,
       logEmail: '',
       logPw: '',
-      autoLogIn: false
+      fbSrc: '//connect.facebook.net/en_US/sdk.js'
     }
   },
   methods: {
@@ -71,9 +74,10 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   html
     font-size: 16px
+    box-sizing: content-box
 
   // login card
   .login-card
@@ -185,6 +189,14 @@ export default {
       right: 10%
       background: rgb(166, 166, 166)
 
-  .flip
-    transform: rotateY(180deg) translateX(100%)
+  .modal-btn
+    position: absolute
+    top: 0
+    right: -30px
+    z-index: 300
+    border: 0
+    background: transparent
+    color: #fff
+    font-weight: bold
+    font-size: 1.2em
 </style>

@@ -213,6 +213,13 @@
       "nickname": "",
       "validation": "",
       "id": 32
+    },
+    {
+      "email": "",
+      "password": "",
+      "nickname": "",
+      "validation": "",
+      "id": 33
     }
   ],
   "posts": [

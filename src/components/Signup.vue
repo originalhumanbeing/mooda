@@ -22,16 +22,12 @@
     <span class="signup-options">또는 아래 계정으로 회원가입</span>
     <a href="#">facebook</a>
     <a href="#">google</a>
-    <!-- <a href="#" class="member-login" @click.prevent="$emit('goLogin')">이미 계정이 있다면 로그인</a> -->
     <a href="#" class="member-login" @click.prevent="$emit('changeMode')">이미 계정이 있다면 로그인</a>
+    <button type="button" class="modal-btn" @click.prevent="$emit('closeModal')">X</button>
   </div>
 </template>
 
 <script>
-// 모달을 띄워야 함
-// 회원가입 선택할 때 카드를 뒤집어야 함
-// 내용 통신해야함
-
 import axios from 'axios';
 
 export default {
@@ -39,7 +35,6 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      // isDisplayed: false,
       signEmail: '',
       signName: '',
       signPw: '',
@@ -55,7 +50,6 @@ export default {
       // 그다음에 prevent 후 처리 (prevent 안에 유효성 체크도 포함되어 있음)
 
       if (e) { e.preventDefault(); }
-      // console.log('회원가입 버튼을 눌렀습니다');
       // domain/path?query(={})
       axios.post('http://localhost:3000/member', {
         email: this.signEmail,
@@ -67,14 +61,12 @@ export default {
         console.log(response);
         if (response.status === 201 && response.statusText === 'Created') {
           console.log('then 실행');
-          // then 부분 실행 안됌
           this.signEmail = '';
           this.signPw = '';
           this.signName = '';
           this.signPwValidation = '';
           window.alert(response.data.nickname + '님, 환영합니다!');
           location.hash = '/forgot'
-          // location.href? 조회 페이지로 랜딩하게 하자
         }
       })
       .catch(error => {
@@ -89,10 +81,11 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   html
     font-size: 16px
     display: flex
+    box-sizing: content-box
 
   // signup card
   .signup-card
@@ -204,4 +197,14 @@ export default {
     &:hover
       color: #181818
 
+  .modal-btn
+    position: absolute
+    top: 0
+    right: -30px
+    z-index: 300
+    border: 0
+    background: transparent
+    color: #fff
+    font-weight: bold
+    font-size: 1.2em
 </style>
