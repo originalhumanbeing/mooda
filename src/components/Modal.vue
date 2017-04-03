@@ -21,8 +21,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  html
-    box-sizing: content-box
+  *, *::before, *::after
+    box-sizing: border-box
 
   #modal
     background: rgba(122, 122, 122, 0.6)
@@ -31,7 +31,8 @@ export default {
     bottom: 0
     left: 0
     right: 0
-    z-index: -5
+    margin: 0
+    z-index: 10
     display: flex
     justify-content: center
     align-content: center
@@ -41,16 +42,4 @@ export default {
     display: flex
     justify-content: center
     align-items: center
-
-  // .modal-btn
-  //   position: absolute
-  //   top: 25px
-  //   right: -260px
-  //   z-index: 300
-  //   border: 0
-  //   // border-radius: 100%
-  //   background: transparent
-  //   color: #fff
-  //   font-weight: bold
-  //   font-size: 1.2em
 </style>

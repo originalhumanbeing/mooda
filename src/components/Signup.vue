@@ -23,7 +23,7 @@
     <a href="#">facebook</a>
     <a href="#">google</a>
     <a href="#" class="member-login" @click.prevent="$emit('changeMode')">이미 계정이 있다면 로그인</a>
-    <button type="button" class="modal-btn" @click.prevent="$emit('closeModal')">X</button>
+    <a type="button" class="modal-btn" @click.prevent="$emit('closeModalView')"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
   </div>
 </template>
 
@@ -82,26 +82,25 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  *, *::before, *::after
+    box-sizing: border-box
+
   html
     font-size: 16px
-    display: flex
-    box-sizing: content-box
 
-  // signup card
   .signup-card
     background: #fff
     position: absolute
-    width: 400px
-    height: 500px
     z-index: 100
     border: 1px solid #e6e6e6
     border-radius: 5px
-    padding: 30px
+    padding: 25px
     text-align: center
     & h2
-      margin: 20px 0 0 0
+      margin: 15px 0
+      font-size: 35px
+      font-weight: 400
 
-  // form 입력 부분
   form
     position: relative
     & legend
@@ -120,59 +119,44 @@ export default {
     & .pw-validation,
     & .user-name
       border: 0
-      border-bottom: 5px solid #e6e6e6
-      padding: 10px
-      margin-left: 45px
+      border-bottom: 3px solid #e6e6e6
+      outline: 0
+      padding: 15px
+      margin: 0 30px
       width: 260px
-      height: 30px
-      line-height: 30px
+      height: 50px
+      line-height: 50px
       font-size: 16px
       font-weight: 300
-    & .pw
-      margin-bottom: 0
-      // 위에 margin-bottom은 로그인 만들 때 아래에 bottom:30준 게 계속 기억되고 지워지지 않아서 어쩔 수 없이 설정함, 왜 그런지 아직 모름
-    & .pw-validation
-      margin-bottom: 30px
-      margin-left: 0
-      // 얘는 왜 혼자 정렬이 다르지? ㅠㅠ
+      transition: all 0.3s ease-in-out
+      &:hover
+        border-bottom: 3px solid rgb(110, 124, 252)
 
-  // 버튼
   form
     & .signup-btn
       position: relative
       outline: 0
-      padding: 10px 110px
-      margin: 0 30px 30px 65px
-      border: 1px solid rgb(255, 149, 135)
+      width: 260px
+      padding: 10px 30px
+      margin: 15px auto
+      background: linear-gradient(135deg,#3549fc 0,#a322ef 50%,#fc3fd8 100%)
+      color: #fff
+      border: 1px solid transparent
       border-radius: 30px
-      background: transparent
       cursor: pointer
       font-size: 16px
-      transition: all 0.5s ease-in-out
+      transition: all 0.3s ease-in-out
       &:hover
-        color: #fff
-      &::after
-        content: ''
-        position: absolute
-        top: 0
-        bottom: 0
-        left: 0
-        right: 100%
-        border-radius: 30px
-        z-index: -1
-        background: rgb(255, 149, 135)
-        transition: all 0.5s ease-in-out
-      &:hover::after
-        right: 0
+        width: 300px
 
   .signup-options
     font-size: 13px
     display: block
     position: relative
-    margin-bottom: 10px
+    margin: 8px auto
     &::before
       content: ''
-      width: 80px
+      width: 60px
       height: 1px
       position: absolute
       top: 50%
@@ -180,17 +164,15 @@ export default {
       background: rgb(166, 166, 166)
     &::after
       content: ''
-      width: 80px
+      width: 60px
       height: 1px
       position: absolute
       top: 50%
       right: 10%
       background: rgb(166, 166, 166)
 
-  // 나머지
   .member-login
     display: block
-    margin: 10px
     padding: 10px
     font-size: 13px
     color: rgb(121, 121, 121)
@@ -202,9 +184,7 @@ export default {
     top: 0
     right: -30px
     z-index: 300
-    border: 0
-    background: transparent
-    color: #fff
-    font-weight: bold
-    font-size: 1.2em
+    & .fa
+      color: #fff
+
 </style>

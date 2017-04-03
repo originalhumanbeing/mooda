@@ -56,7 +56,7 @@
   };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   body
     width: 100%
     background: #fff

@@ -3,9 +3,9 @@
     <button type="button" name="button" v-if="hideModalBtn" @click="showModal()">Show</button>
     <a href="#/input">input</a>
     <a href="#/today">today</a>
-    <modal v-if="popUpModal" @closeModal="closeModal">
+    <modal v-if="popUpModal">
       <transition enter-active-class="animated flipInY" leave-active-class="animated flipOutY" duration="450" mode="out-in" appear>
-        <component @changeMode="changeView" :is="component_selected"></component>
+        <component @changeMode="changeView" @closeModalView="closeModal" :is="component_selected"></component>
       </transition>
     </modal>
   </div>
@@ -57,8 +57,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  html
-    // box-sizing: content-box
+  *, *::before, *::after
+    box-sizing: border-box
 
   #member
     display: flex
@@ -72,10 +72,7 @@ export default {
   .modal
     z-index: 10
 
-  .login-card
-    z-index: 100
-
+  .login-card,
   .signup-card
-    // display: none
     z-index: 100
 </style>
