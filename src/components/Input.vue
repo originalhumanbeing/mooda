@@ -11,20 +11,20 @@
           <md-input-container class="input-area">
             <md-input-container class="input-area">
               <label>How are you doing?</label>
-              <md-textarea></md-textarea>
+              <md-textarea v-model="user_input.comment"></md-textarea>
             </md-input-container>
-            <div class="emoji-group">
+            <md-layout md-row-large md-flex="75" class="emoji-group">
               <!--emoji는 a 각각 sprite로 바꾸기!-->
-              <a href="#" class="happy"><img src="../../img/emoji.png" alt=""></a>
-              <!-- <a href="#" class="sulky"><img src="../../img/emoji.png" alt=""></a>
-              <a href="#" class="naughty"><img src="../../img/emoji.png" alt=""></a>
-              <a href="#" class="hungry"><img src="../../img/emoji.png" alt=""></a> -->
-            </div>
+              <a href="#" class="happy" @click.prevent="selectEmoji(4)" :class="{'active' : user_input.emoji === 4}"><img src="../assets/happy.png" alt=""></a>
+              <a href="#" class="sulky" @click.prevent="selectEmoji(3)" :class="{'active' : user_input.emoji === 3}"><img src="../assets/sulky.png" alt=""></a>
+              <a href="#" class="naughty" @click.prevent="selectEmoji(2)" :class="{'active' : user_input.emoji === 2}"><img src="../assets/naughty.png" alt=""></a>
+              <a href="#" class="hungry" @click.prevent="selectEmoji(1)" :class="{'active' : user_input.emoji === 1}"><img src="../assets/hungry.png" alt=""></a>
+            </md-layout>
           </md-input-container>
         </form>
 
         <md-card-actions>
-          <md-button>Post</md-button>
+          <md-button @click.native="submitDaily">Post</md-button>
         </md-card-actions>
       </md-card-area>
     </md-card>
@@ -36,7 +36,23 @@ export default {
   name: 'input-card',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      user_input:{
+        date: new Date(),
+        comment: '',
+        emoji: ''
+      }
+    }
+  },
+  methods: {
+    selectEmoji(emoji) {
+      this.user_input.emoji = emoji;
+      console.log(emoji);
+    },
+    submitDaily(e) {
+      this.$http.post('https://mooda-f6e38.firebaseio.com/daily.json', this.user_input)
+                .then(response => console.log(response))
+                .then(()=>location.hash = '#/today')
+                .catch(error => console.error(error.message))
     }
   }
 }
@@ -44,22 +60,17 @@ export default {
 
 <style lang="sass" scoped>
   .input-card
-    width: 50%
     margin: 60px auto
 
   .input-area
     display: block
-    width: 90%
     margin: 0 auto
+    padding: 20px
 
   .emoji-group
     display: block
-    // width: 50px
-    // height: 50px
-    // overflow: hidden
-    // & a
-    //   display: inline-block
-    //
-  fieldset
+
+  .active
+    opacity: 0.5
 
 </style>

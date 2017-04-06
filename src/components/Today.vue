@@ -2,8 +2,7 @@
   <div class="today">
     <header class="today-header">
       <div class="date-group">
-        <span class="dd">28th Monday</span>
-        <span class="mmyy">March 2017</span>
+        {{this.dailyItem.date}}
       </div>
       <div class="weather-group">
         <div>날씨 API 공간</div>
@@ -16,42 +15,111 @@
     </div>
     <div class="main-content">
       <div class="daily">
+        <div class="daily-title">My Stuffs</div>
         <md-card>
+          <span>{{dailyItem.date}}</span>
           <md-card-media>
+            <div :class="dailyEmotion"><img
+              :src="this.emotion_src" alt=""></div>
+              <!-- /static/img/emoji.9aaa704.png
+            정적으로 넣을 때 이미지가 들어가는 방식 -->
+            <!-- {{renderEmoji(dailyItem.emoji)}} -->
             <!--저장해둔 이모티콘이 들어오는 부분-->
             <!-- <img src="assets/card-image-2.jpg" alt="People"> -->
+            <!-- 일간일간일간일간일간 이모지 -->
           </md-card-media>
 
           <md-card-content>
+            {{dailyItem.comment}}
             <!--코멘트 저장해뒀다면 해당 코멘트가 들어오는 부분-->
-            일간일간일간일간일간
+            <!-- 일간일간일간일간일간 코멘트 -->
           </md-card-content>
         </md-card>
       </div>
       <div class="weekly">
-        <md-card>
-          <md-card-media>
-            <!--저장해둔 이모티콘이 들어오는 부분-->
-            <!-- <img src="assets/card-image-2.jpg" alt="People"> -->
-          </md-card-media>
+        <ul class="weekly-data">
+          <li>
+            <!-- v-for="item in items" -->
+            <md-card>
+              <md-card-content>임시 주간 컨텐츠컨텐츠 영역</md-card-content>
+              <!-- <md-card-content>{{item.content}}</md-card-content> -->
+              <!-- <md-card-media>
+                <!--저장해둔 이모티콘이 들어오는 부분-->
+                <!-- <img src="assets/card-image-2.jpg" alt="People"> -->
+                <!-- 주간주간주간주간 이모지 -->
+              <!-- </md-card-media> -->
 
-          <md-card-content>
-            <!--코멘트 저장해뒀다면 해당 코멘트가 들어오는 부분-->
-            주간ㄱ주간주간주간
-          </md-card-content>
-        </md-card>
+              <!-- <md-card-content> -->
+                <!--코멘트 저장해뒀다면 해당 코멘트가 들어오는 부분-->
+                <!-- 주간주간주간주간 코멘트 -->
+              <!-- </md-card-content> --> -->
+            </md-card>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import moment from 'moment';
+
+  const DATE_FORMAT = 'YYYY년 M월 D일';
   export default {
     name: 'today',
     data () {
       return {
-        msg: 'Welcome to Your Vue.js App'
+        dailyEmotion: '',
+        emotion_src: '',
+         dailyItem: {
+           date : moment().format(DATE_FORMAT),
+           emoji : '이날 기분은 없습니다.',
+           comment : '이날 코멘트는 없습니다.'
+         }
       }
+    },
+    methods: {
+      renderEmoji() {
+        let emoji = this.dailyItem.emoji;
+        if (emoji == 4) {
+          this.dailyEmotion = 'happy';
+          this.emotion_src = require('../assets/happy.png');
+        }
+        else if (emoji == 3) {
+          this.dailyEmotion = 'sulky';
+          this.emotion_src = require('../assets/sulky.png');
+        }
+        else if (emoji == 2) {
+          this.dailyEmotion = 'naughty';
+          this.emotion_src = require('../assets/naughty.png');
+        }
+        else if (emoji == 1) {
+          this.dailyEmotion = 'hungry';
+          this.emotion_src = require('../assets/hungry.png');
+        }
+        else
+          return '이날 기분은 없습니다.'
+      }
+    },
+    created: function() {
+      console.log("created");
+      // db에서 데이터를 가져온다
+      this.$http.get('https://mooda-f6e38.firebaseio.com/daily.json')
+                .then(response => response.data)
+                .then(data => {
+                  let arr = Object.keys(data).map(item => data[item]);
+                  if (arr.length > 0) {
+                    this.dailyItem.date = moment(arr[0].date).format(DATE_FORMAT);
+                    this.dailyItem.emoji = arr[0].emoji;
+                    // this.dailyItem.emoji = 4;
+                    this.dailyItem.comment = arr[0].comment;
+                    this.renderEmoji();
+                }
+
+                });
+      // 데이터를 뿌리기 좋게 조작한다
+      // 데이터를 뿌린다
+
     }
   };
 </script>
@@ -79,20 +147,15 @@
     align-items: center
 
   .date-group
-    // background: orange
     width: 50%
     max-height: 100px
     padding: 30px
-    & span
-      display: block
-      text-align: left
-    & .dd
-      font-size: 30px
-      line-height: 30px
-      letter-spacing: 2px
+    text-align: left
+    font-size: 30px
+    line-height: 30px
+    letter-spacing: 2px
 
   .weather-group
-    // background: skyblue
     width: 50%
     max-height: 100px
     padding: 30px
