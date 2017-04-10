@@ -1,88 +1,115 @@
 <template>
   <div id="member">
-    <input-card></input-card>
-    <!--조회창으로 바꾸기-->
-    <a href="#/today">today</a>
-    <a href="#/test">test</a>
+    <transition enter-active-class="animated flipInY" leave-active-class="animated flipOutY" duration="450"
+                mode="out-in" appear>
+      <component @changeDailyCard="changeDailyView" :is="component_selected"></component>
+    </transition>
+    <!--<input-card></input-card>-->
+    <!--&lt;!&ndash;조회창으로 바꾸기&ndash;&gt;-->
+    <!--<a href="#/today">today</a>-->
+    <!--<a href="#/test">test</a>-->
     <modal v-if="popUpModal">
-      <transition enter-active-class="animated flipInY" leave-active-class="animated flipOutY" duration="450" mode="out-in" appear>
-        <component @changeMode="changeView" @closeModalView="closeModal" :is="component_selected"></component>
+      <transition enter-active-class="animated flipInY" leave-active-class="animated flipOutY" duration="450"
+                  mode="out-in" appear>
+        <component @changeMode="changeView" @closeModalView="closeModal" :is="modal_component_selected"></component>
       </transition>
     </modal>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import Login from './Login.vue'
-import Signup from './Signup.vue'
-import Modal from './Modal.vue'
-import InputCard from './InputCard.vue'
+  import Vue from 'vue'
+  import Login from './Login.vue'
+  import Signup from './Signup.vue'
+  import Modal from './Modal.vue'
+  import InputCard from './InputCard.vue'
+  import Today from './Today.vue'
+  import firebaseService from '../service/firebaseService';
 
-export default {
-  name: 'main',
-  data () {
-    return {
-      isLogin : Vue.isLogined(),
-      popUpModal: false,
-      showLogin: false,
-      completeToday : false,
-      component_selected: 'login'
-    }
-  },
-  // 자식이 부모 걸 받아올 때 prop 사용
-  // 동적 prop: 부모가 data로 가지고 있는 부분을
-  // 자식이 prop으로 받을 수 있음
-  // 자식이 prop으로 가지고 있는 것을 bind해놔야 부모 것을 동적으로 받을 수 있음
-  components: {
-    Modal,
-    Login,
-    Signup,
-    InputCard
-  },
-  methods: {
-    showModal(){
-      console.log('showModal 실행됌');
-      this.popUpModal = true;
-      this.showLogin = true;
-      this.hideModalBtn = false;
-    },
-    closeModal(){
-      console.log('closeModal 실행됌');
-      this.popUpModal = false;
-      this.hideModalBtn = true;
-    },
-    changeView(){
-      console.log('changeView 실행됌');
-      this.component_selected = this.component_selected === 'login' ? 'signup' : 'login';
-    }
-  },
-  created() {
-      if (!this.isLogin) {
-          this.component_selected = 'login';
-          this.showModal();
+  export default {
+    name: 'main',
+    data () {
+      return {
+        popUpModal: false,
+        showLogin: false,
+        completeToday: false,
+        modal_component_selected: 'login',
+        component_selected: 'input-card'
+
       }
+    },
+    // 자식이 부모 걸 받아올 때 prop 사용
+    // 동적 prop: 부모가 data로 가지고 있는 부분을
+    // 자식이 prop으로 받을 수 있음
+    // 자식이 prop으로 가지고 있는 것을 bind해놔야 부모 것을 동적으로 받을 수 있음
+    components: {
+      Modal,
+      Login,
+      Signup,
+      InputCard,
+      Today
+    },
+    methods: {
+      showModal(){
+        console.log('showModal 실행됌');
+        this.popUpModal = true;
+        this.showLogin = true;
+        this.hideModalBtn = false;
+      },
+      closeModal(){
+        console.log('closeModal 실행됌');
+        this.popUpModal = false;
+        this.hideModalBtn = true;
+
+        if(Vue.isLogined())
+          firebaseService.fetchEmoji({uid: Vue.thisUser.uid, date: new Date()})
+            .then(r => {
+              if (r)
+                this.component_selected = 'today';
+            })
+      },
+      changeView(){
+        console.log('changeView 실행됌');
+        this.modal_component_selected = this.modal_component_selected === 'login' ? 'signup' : 'login';
+      },
+      changeDailyView(){
+        console.log('changeDailyView 실행됌');
+        this.component_selected = this.component_selected === 'input-card' ? 'today' : 'input-card';
+      }
+    },
+    created() {
+      if (!Vue.isLogined()) {
+        this.modal_component_selected = 'login';
+        this.showModal();
+      } else {
+        firebaseService.fetchEmoji({uid: Vue.thisUser.uid, date: new Date()})
+          .then(r => {
+              console.log('today emoji', r)
+            if (r)
+              this.component_selected = 'today';
+          })
+      }
+    }
   }
-}
 </script>
 
 <style lang="sass" scoped rel="stylesheet/sass">
   *, *::before, *::after
     box-sizing: border-box
 
-  #member
-    display: flex
-    justify-content: center
-    align-items: center
+    #member
+      display: flex
+      justify-content: center
+      align-items: center
 
-  #member *
-    display: block
-    margin: 20px
+    #member *
+      display: block
+      margin: 20px
 
-  .modal
-    z-index: 10
+    .modal
+      z-index: 10
 
-  .login-card,
-  .signup-card
-    z-index: 100
+    .login-card,
+    .signup-card
+      z-index: 100
 </style>

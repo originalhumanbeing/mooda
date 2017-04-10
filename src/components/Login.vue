@@ -37,8 +37,6 @@
       }
     },
     methods: {
-      logIn(){
-      },
       googleLogin() {
         firebaseService.googleLogin().then(user => {
           Vue.thisUser = user;

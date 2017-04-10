@@ -52,8 +52,7 @@
           date: moment().format('YYYYMMDD')
         },
         user: {},
-        todayEmoji: {},
-        last7Emojis: {}
+        todayEmoji: {}
       }
     },
     methods: {
