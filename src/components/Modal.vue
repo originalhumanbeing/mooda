@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass" scoped rel="stylesheet/sass">
   *, *::before, *::after
     box-sizing: border-box
 

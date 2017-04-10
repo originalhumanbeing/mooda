@@ -1,8 +1,9 @@
 <template>
   <div id="member">
-    <button type="button" name="button" v-if="hideModalBtn" @click="showModal()">Show</button>
-    <a href="#/input">input</a>
+    <input-card></input-card>
+    <!--조회창으로 바꾸기-->
     <a href="#/today">today</a>
+    <a href="#/test">test</a>
     <modal v-if="popUpModal">
       <transition enter-active-class="animated flipInY" leave-active-class="animated flipOutY" duration="450" mode="out-in" appear>
         <component @changeMode="changeView" @closeModalView="closeModal" :is="component_selected"></component>
@@ -16,14 +17,16 @@ import Vue from 'vue'
 import Login from './Login.vue'
 import Signup from './Signup.vue'
 import Modal from './Modal.vue'
+import InputCard from './InputCard.vue'
 
 export default {
-  name: 'member',
+  name: 'main',
   data () {
     return {
+      isLogin : Vue.isLogined(),
       popUpModal: false,
       showLogin: false,
-      hideModalBtn: true,
+      completeToday : false,
       component_selected: 'login'
     }
   },
@@ -34,29 +37,36 @@ export default {
   components: {
     Modal,
     Login,
-    Signup
+    Signup,
+    InputCard
   },
   methods: {
-    showModal: function(){
+    showModal(){
       console.log('showModal 실행됌');
       this.popUpModal = true;
       this.showLogin = true;
       this.hideModalBtn = false;
     },
-    closeModal: function(){
+    closeModal(){
       console.log('closeModal 실행됌');
       this.popUpModal = false;
       this.hideModalBtn = true;
     },
-    changeView: function(){
+    changeView(){
       console.log('changeView 실행됌');
       this.component_selected = this.component_selected === 'login' ? 'signup' : 'login';
     }
+  },
+  created() {
+      if (!this.isLogin) {
+          this.component_selected = 'login';
+          this.showModal();
+      }
   }
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass" scoped rel="stylesheet/sass">
   *, *::before, *::after
     box-sizing: border-box
 

@@ -8,8 +8,18 @@ import VueAxios from 'vue-axios'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 
+let UserPlugin = {};
+UserPlugin.install = function(Vue) {
+  Vue.thisUser = undefined;
+
+  Vue.isLogined = function () {
+    return !!Vue.thisUser;
+  }
+};
+
 Vue.use(VueAxios, axios);
 Vue.use(VueMaterial);
+Vue.use(UserPlugin);
 
 Vue.config.productionTip = false;
 

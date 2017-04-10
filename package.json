@@ -15,7 +15,13 @@
   "dependencies": {
     "vue": "^2.2.2",
     "vue-material": "^0.7.1",
-    "vue-router": "^2.2.0"
+    "vue-router": "^2.2.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^5.0.1",
+    "vue-axios": "^2.0.1",
+    "moment": "^2.18.1",
+    "firebase": "^3.7.5"
+
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -79,11 +85,8 @@
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.16.1",
-    "webpack-merge": "^2.6.1",
-    "node-sass": "^4.5.0",
-    "sass-loader": "^5.0.1",
-    "vue-axios": "^2.0.1",
-    "moment": "^2.18.1"
+    "webpack-merge": "^2.6.1"
+
   },
   "engines": {
     "node": ">= 4.0.0",

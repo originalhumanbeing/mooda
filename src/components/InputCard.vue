@@ -14,7 +14,6 @@
               <md-textarea v-model="user_input.comment"></md-textarea>
             </md-input-container>
             <md-layout md-row-large md-flex="75" class="emoji-group">
-              <!--emoji는 a 각각 sprite로 바꾸기!-->
               <a href="#" class="happy" @click.prevent="selectEmoji(4)" :class="{'active' : user_input.emoji === 4}"><img src="../assets/happy.png" alt=""></a>
               <a href="#" class="sulky" @click.prevent="selectEmoji(3)" :class="{'active' : user_input.emoji === 3}"><img src="../assets/sulky.png" alt=""></a>
               <a href="#" class="naughty" @click.prevent="selectEmoji(2)" :class="{'active' : user_input.emoji === 2}"><img src="../assets/naughty.png" alt=""></a>
@@ -25,6 +24,7 @@
 
         <md-card-actions>
           <md-button @click.native="submitDaily">Post</md-button>
+          <md-button @click.native="deleteDaily">Delete</md-button>
         </md-card-actions>
       </md-card-area>
     </md-card>
@@ -32,6 +32,9 @@
 </template>
 
 <script>
+
+import firebaseService from '../service/firebaseService';
+
 export default {
   name: 'input-card',
   data () {
@@ -48,17 +51,22 @@ export default {
       this.user_input.emoji = emoji;
       console.log(emoji);
     },
+
+    // submitDaily === createEmoji
     submitDaily(e) {
       this.$http.post('https://mooda-f6e38.firebaseio.com/daily.json', this.user_input)
                 .then(response => console.log(response))
                 .then(()=>location.hash = '#/today')
                 .catch(error => console.error(error.message))
+    },
+    deleteDaily(e){
+      this.$http.delete('https://mooda-f6e38.firebaseio.com/daily.json', )
     }
   }
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass" scoped rel="stylesheet/sass">
   .input-card
     margin: 60px auto
 

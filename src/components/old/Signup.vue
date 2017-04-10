@@ -29,12 +29,12 @@
 
 <script>
 import axios from 'axios';
-import firebaseService from '../service/firebaseService';
 
 export default {
   name: 'signup-card',
   data () {
     return {
+      msg: 'Welcome to Your Vue.js App',
       signEmail: '',
       signName: '',
       signPw: '',
