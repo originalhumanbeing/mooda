@@ -1,8 +1,7 @@
 <template>
-  <div class="today">
-    <div class="daily">
-      <div class="daily-title">Weekly</div>
-      <md-card class="dailyCard">
+  <div class="Weekly">
+      <div class="weekly-title">Weekly</div>
+      <md-card class="weeklyCard">
         <span>{{dailyItem.date}}</span>
         <md-card-media>
           <div :class="dailyEmotion">
