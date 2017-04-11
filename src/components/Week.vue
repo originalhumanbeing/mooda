@@ -68,4 +68,6 @@
 </script>
 
 <style lang="sass" scoped rel="stylesheet/sass">
+  *, *::before, *::after
+    box-sizing: border-box
 </style>
