@@ -32,8 +32,8 @@
         showLogin: false,
         completeToday: false,
         modal_component_selected: 'login',
-        component_selected: 'input-card'
-
+        component_selected: 'input-card',
+        showWeek: false
       }
     },
     // 자식이 부모 걸 받아올 때 prop 사용
