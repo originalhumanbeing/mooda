@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9abec8cf-4ab1-482d-a98b-ace7b0c6de27" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Week.vue" afterPath="$PROJECT_DIR$/src/components/Week.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,8 +60,8 @@
           <file leaf-file-name="Week.vue" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/Week.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="18" />
+                <state relative-caret-position="450">
+                  <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -777,7 +776,7 @@
       <workItem from="1491493268898" duration="786000" />
       <workItem from="1491495919531" duration="636000" />
       <workItem from="1491496595531" duration="308000" />
-      <workItem from="1491496927518" duration="76777000" />
+      <workItem from="1491496927518" duration="76816000" />
     </task>
     <task id="LOCAL-00001" summary="added firebase service to use it as module and tested it on FireBaseTest.vue file">
       <created>1491834960403</created>
@@ -793,11 +792,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491844906690</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="started implementing weekly dashboard component">
+      <created>1491884364844</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1491884364844</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78507000" />
+    <option name="totallyTimeSpent" value="78546000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
@@ -823,7 +829,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14455445" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13099042" sideWeight="0.31590655" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.043564357" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35959885" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35959885" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1858006" sideWeight="0.6840934" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10990099" sideWeight="0.4978701" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -876,7 +882,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added firebase service to use it as module and tested it on FireBaseTest.vue file" />
     <MESSAGE value="started connecting firebaseService.js to components&#10;succeeded in implementing login feature with google ID, &#10;and rendering input component if user didn't input anything yet.&#10;&#10;&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="started connecting firebaseService.js to components&#10;succeeded in implementing login feature with google ID, &#10;and rendering input component if user didn't input anything yet.&#10;&#10;&#10;&#10;" />
+    <MESSAGE value="started implementing weekly dashboard component" />
+    <option name="LAST_COMMIT_MESSAGE" value="started implementing weekly dashboard component" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1161,8 +1168,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Week.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="18" />
+        <state relative-caret-position="450">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
