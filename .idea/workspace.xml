@@ -60,8 +60,8 @@
           <file leaf-file-name="Week.vue" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/Week.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="450">
-                  <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+                <state relative-caret-position="495">
+                  <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -776,7 +776,7 @@
       <workItem from="1491493268898" duration="786000" />
       <workItem from="1491495919531" duration="636000" />
       <workItem from="1491496595531" duration="308000" />
-      <workItem from="1491496927518" duration="76816000" />
+      <workItem from="1491496927518" duration="76823000" />
     </task>
     <task id="LOCAL-00001" summary="added firebase service to use it as module and tested it on FireBaseTest.vue file">
       <created>1491834960403</created>
@@ -799,11 +799,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491884364844</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="started implementing weekly dashboard component">
+      <created>1491884379081</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1491884379081</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78546000" />
+    <option name="totallyTimeSpent" value="78553000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
@@ -1168,8 +1175,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Week.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="495">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
