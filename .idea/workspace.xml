@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9abec8cf-4ab1-482d-a98b-ace7b0c6de27" name="Default" comment="added firebase service to use it as module and tested it on FireBaseTest.vue file">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Today.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Week.vue" />
+    <list default="true" id="9abec8cf-4ab1-482d-a98b-ace7b0c6de27" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FireBaseTest.vue" afterPath="$PROJECT_DIR$/src/components/FireBaseTest.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/InputCard.vue" afterPath="$PROJECT_DIR$/src/components/InputCard.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Login.vue" afterPath="$PROJECT_DIR$/src/components/Login.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Main.vue" afterPath="$PROJECT_DIR$/src/components/Main.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Week.vue" afterPath="$PROJECT_DIR$/src/components/Week.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,6 +36,16 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="135">
+                  <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="Main.vue" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/Main.vue">
               <provider selected="true" editor-type-id="text-editor">
@@ -56,8 +61,8 @@
           <file leaf-file-name="Week.vue" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/Week.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="495">
-                  <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+                <state relative-caret-position="315">
+                  <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
@@ -201,10 +206,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1920" />
-    <option name="y" value="-218" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1366" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -774,7 +777,7 @@
       <workItem from="1491493268898" duration="786000" />
       <workItem from="1491495919531" duration="636000" />
       <workItem from="1491496595531" duration="308000" />
-      <workItem from="1491496927518" duration="75875000" />
+      <workItem from="1491496927518" duration="76777000" />
     </task>
     <task id="LOCAL-00001" summary="added firebase service to use it as module and tested it on FireBaseTest.vue file">
       <created>1491834960403</created>
@@ -783,14 +786,21 @@
       <option name="project" value="LOCAL" />
       <updated>1491834960403</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="started connecting firebaseService.js to components&#10;succeeded in implementing login feature with google ID, &#10;and rendering input component if user didn't input anything yet.&#10;&#10;&#10;&#10;">
+      <created>1491844906690</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1491844906690</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77605000" />
+    <option name="totallyTimeSpent" value="78507000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="-218" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1366" height="768" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -813,8 +823,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14455445" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13099042" sideWeight="0.31590655" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.043564357" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32871288" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13099042" sideWeight="0.6840934" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35959885" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1858006" sideWeight="0.6840934" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10990099" sideWeight="0.4978701" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -865,7 +875,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added firebase service to use it as module and tested it on FireBaseTest.vue file" />
-    <option name="LAST_COMMIT_MESSAGE" value="added firebase service to use it as module and tested it on FireBaseTest.vue file" />
+    <MESSAGE value="started connecting firebaseService.js to components&#10;succeeded in implementing login feature with google ID, &#10;and rendering input component if user didn't input anything yet.&#10;&#10;&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="started connecting firebaseService.js to components&#10;succeeded in implementing login feature with google ID, &#10;and rendering input component if user didn't input anything yet.&#10;&#10;&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -948,14 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1148,10 +1151,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Week.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="315">
+          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="18" />
           <folding />
         </state>
       </provider>

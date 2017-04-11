@@ -1,7 +1,7 @@
 <template>
   <div class="today">
     <div class="daily">
-      <div class="daily-title">My Stuffs</div>
+      <div class="daily-title">Weekly</div>
       <md-card class="dailyCard">
         <span>{{dailyItem.date}}</span>
         <md-card-media>
