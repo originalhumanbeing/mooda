@@ -4,10 +4,7 @@
                 mode="out-in" appear>
       <component @changeDailyCard="changeDailyView" :is="component_selected"></component>
     </transition>
-    <!--<input-card></input-card>-->
-    <!--&lt;!&ndash;조회창으로 바꾸기&ndash;&gt;-->
-    <!--<a href="#/today">today</a>-->
-    <!--<a href="#/test">test</a>-->
+    <week></week>
     <modal v-if="popUpModal">
       <transition enter-active-class="animated flipInY" leave-active-class="animated flipOutY" duration="450"
                   mode="out-in" appear>
@@ -24,7 +21,8 @@
   import Modal from './Modal.vue'
   import InputCard from './InputCard.vue'
   import Today from './Today.vue'
-  import firebaseService from '../service/firebaseService';
+  import firebaseService from '../service/firebaseService'
+  import Week from './Week.vue'
 
   export default {
     name: 'main',
@@ -47,7 +45,8 @@
       Login,
       Signup,
       InputCard,
-      Today
+      Today,
+      Week
     },
     methods: {
       showModal(){
@@ -98,12 +97,10 @@
     box-sizing: border-box
 
     #member
-      display: flex
-      justify-content: center
-      align-items: center
+      display: block
 
     #member *
-      display: block
+      /*display: block*/
       margin: 20px
 
     .modal
@@ -112,4 +109,7 @@
     .login-card,
     .signup-card
       z-index: 100
+
+    .md-card
+      display: block
 </style>
