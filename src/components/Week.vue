@@ -1,23 +1,19 @@
 <template>
-  <div class="Weekly">
+  <div class="week">
     <div class="weekly-title">Weekly</div>
-    <md-card class="weeklyCard">
-      <ul class="weeklyItems">
-        <li v-for="item of items">
+    <ul class="weeklyItems">
+      <li :class="item.matchingColor" v-for="item of items">
+        <md-card>
           <span>{{item.date}}</span>
           <md-card-media>
-            <div :class="weeklyEmotion">
-              <img class="weeklyEmoji" :src="item.emojiSrc" alt="">
-            </div>
+            <img :src="item.emojiSrc" alt="">
           </md-card-media>
-          <md-card-content>
-            {{item.comment}}
-          </md-card-content>
-        </li>
-      </ul>
-    </md-card>
+          <md-card-content>{{item.comment}}</md-card-content>
+        </md-card>
+      </li>
+    </ul>
   </div>
-  </div>
+
 </template>
 
 <script>
@@ -29,7 +25,6 @@
     name: 'Week',
     data () {
       return {
-        weeklyEmotion: '',
         items: []
       }
     },
@@ -49,6 +44,22 @@
         }
         else
           return '';
+      },
+      getMatchingColor(emoji) {
+        if (emoji == 4) {
+          return 'happy';
+        }
+        else if (emoji == 3) {
+          return 'sulky';
+        }
+        else if (emoji == 2) {
+          return 'naughty';
+        }
+        else if (emoji == 1) {
+          return 'hungry';
+        }
+        else
+          return '';
       }
     },
     created(){
@@ -60,6 +71,7 @@
               item.date = key;
               Object.assign(item, r[key]);
               item.emojiSrc = this.getEmojiImage(item.emoji);
+              item.matchingColor =  this.getMatchingColor(item.emoji);
               return item
             });
           })
@@ -70,4 +82,38 @@
 <style lang="sass" scoped rel="stylesheet/sass">
   *, *::before, *::after
     box-sizing: border-box
+
+  .weekly-title
+    background: linear-gradient(135deg, #3549fc 0, #a322ef 50%, #fc3fd8 100%)
+    width: 150px
+    padding: 15px
+
+  ul
+    list-style: none
+    padding-left: 0
+    border-left: 3px solid  #3549fc
+
+  li
+    padding-left: 30px
+
+  li::before
+    content: ''
+    border: 15px solid #a322ef
+    border-radius: 50%
+    position: relative
+    left: -140px
+    top: 150px
+    z-index: 100
+
+  .happy::before
+    border-color: yellow
+
+  .sulky::before
+    border-color: green
+
+  .naughty::before
+    border-color: blue
+
+  .hungry::before
+    border-color: red
 </style>
