@@ -8,11 +8,11 @@
         </md-card-header>
         <form novalidate @submit.stop.prevent="submit">
           <md-input-container class="input-area">
-            <md-input-container class="input-area">
+            <md-input-container>
               <label>How are you doing?</label>
               <md-textarea v-model="user_input.comment"></md-textarea>
             </md-input-container>
-            <md-layout class="emoji-group">
+            <div class="emoji-group">
               <a href="#" class="happy" @click.prevent="selectEmoji(4)"
                  :class="{'active' : user_input.emoji === 4}"><img src="../assets/happy.png" alt=""></a>
               <a href="#" class="sulky" @click.prevent="selectEmoji(3)"
@@ -21,7 +21,7 @@
                  :class="{'active' : user_input.emoji === 2}"><img src="../assets/naughty.png" alt=""></a>
               <a href="#" class="hungry" @click.prevent="selectEmoji(1)"
                  :class="{'active' : user_input.emoji === 1}"><img src="../assets/hungry.png" alt=""></a>
-            </md-layout>
+            </div>
           </md-input-container>
         </form>
 
@@ -56,9 +56,6 @@
         this.user_input.emoji = emoji;
         console.log(emoji);
       },
-
-      // 이미 내용 있으면 수정인지 아닌지 분기해서 만들어야 함
-
       createEmoji() {
         let create = firebaseService.createEmoji;
         if (this.isUpdate) {
@@ -85,16 +82,23 @@
 <style lang="sass" scoped rel="stylesheet/sass">
   .input-card
     margin: 60px auto
+    width: 800px
+    min-height: 400px
+    // 내용 쓰는 것 글자수 제한해야 하나? 안 그러면 view가 어떻게 되지
 
-    .input-area
-      display: block
-      margin: 0 auto
-      padding: 20px
+  .input-area
+    display: block
+    margin: 0 auto
+    padding: 20px
 
-    .emoji-group
-      display: block
+  .emoji-group
+    display: block
 
-    .active
-      opacity: 0.5
+  .active
+    opacity: 0.5
+
+  img
+    width: 150px
+    height: 150px
 
 </style>

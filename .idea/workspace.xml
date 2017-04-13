@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9abec8cf-4ab1-482d-a98b-ace7b0c6de27" name="Default" comment="chagned weekly.vue file's html,&#10;added color matching function with mood &#10;( when 'happy' was chosen, circle's color will be yellow,&#10;  when 'sulky' was chosen, circle's color will be green,&#10;  when 'naughty' was chosen, circle's color will be blue,&#10;  when 'hungry' was chosen, circle's color will be red)">
+    <list default="true" id="9abec8cf-4ab1-482d-a98b-ace7b0c6de27" name="Default" comment="implemented 'change', 'delete' feature for today&#10;(when change button from today hit, card would be flipped, user can check what he wrote 'today' and change it on input card)">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="$PROJECT_DIR$/src/App.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/InputCard.vue" afterPath="$PROJECT_DIR$/src/components/InputCard.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Main.vue" afterPath="$PROJECT_DIR$/src/components/Main.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Today.vue" afterPath="$PROJECT_DIR$/src/components/Today.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Week.vue" afterPath="$PROJECT_DIR$/src/components/Week.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/service/firebaseService.js" afterPath="$PROJECT_DIR$/src/service/firebaseService.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +31,8 @@
           <file leaf-file-name="Main.vue" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/Main.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1680">
-                  <caret line="112" column="36" lean-forward="false" selection-start-line="112" selection-start-column="36" selection-end-line="112" selection-end-column="36" />
+                <state relative-caret-position="165">
+                  <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
                   <folding>
                     <element signature="e#948#969#0" expanded="true" />
                   </folding>
@@ -39,11 +40,21 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/App.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="Week.vue" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/Week.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+                <state relative-caret-position="510">
+                  <caret line="91" column="20" lean-forward="true" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -52,10 +63,10 @@
           <file leaf-file-name="InputCard.vue" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/InputCard.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="50" column="10" lean-forward="false" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+                <state relative-caret-position="196">
+                  <caret line="61" column="40" lean-forward="false" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
                   <folding>
-                    <element signature="e#1554#1576#0" expanded="true" />
+                    <element signature="e#1523#1545#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -64,10 +75,10 @@
           <file leaf-file-name="Today.vue" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/Today.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="70" column="48" lean-forward="false" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="48" />
+                <state relative-caret-position="180">
+                  <caret line="74" column="51" lean-forward="false" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
                   <folding>
-                    <element signature="e#628#656#0" expanded="true" />
+                    <element signature="e#759#787#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -80,8 +91,8 @@
           <file leaf-file-name="firebaseService.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/service/firebaseService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+                <state relative-caret-position="255">
+                  <caret line="88" column="44" lean-forward="false" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
                   <folding>
                     <element signature="e#0#32#0" expanded="true" />
                   </folding>
@@ -112,8 +123,8 @@
       <find>submitDaily</find>
       <find>component_selected</find>
       <find>isLogin</find>
-      <find>renderEmoji</find>
       <find>getEmojiImage</find>
+      <find>renderEmoji</find>
       <find>changeDailyView</find>
     </findStrings>
     <replaceStrings>
@@ -145,10 +156,11 @@
         <option value="$PROJECT_DIR$/src/components/Signup.vue" />
         <option value="$PROJECT_DIR$/src/components/FireBaseTest.vue" />
         <option value="$PROJECT_DIR$/src/components/Login.vue" />
+        <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/components/Today.vue" />
-        <option value="$PROJECT_DIR$/src/service/firebaseService.js" />
         <option value="$PROJECT_DIR$/src/components/InputCard.vue" />
         <option value="$PROJECT_DIR$/src/components/Main.vue" />
+        <option value="$PROJECT_DIR$/src/service/firebaseService.js" />
         <option value="$PROJECT_DIR$/src/components/Week.vue" />
       </list>
     </option>
@@ -165,8 +177,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1366" />
-    <option name="height" value="768" />
+    <option name="x" value="-1920" />
+    <option name="y" value="-218" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -714,7 +728,7 @@
       <workItem from="1491493268898" duration="786000" />
       <workItem from="1491495919531" duration="636000" />
       <workItem from="1491496595531" duration="308000" />
-      <workItem from="1491496927518" duration="109137000" />
+      <workItem from="1491496927518" duration="119262000" />
     </task>
     <task id="LOCAL-00001" summary="added firebase service to use it as module and tested it on FireBaseTest.vue file">
       <created>1491834960403</created>
@@ -779,14 +793,21 @@
       <option name="project" value="LOCAL" />
       <updated>1491983867095</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="implemented 'change', 'delete' feature for today&#10;(when change button from today hit, card would be flipped, user can check what he wrote 'today' and change it on input card)">
+      <created>1492064195823</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1492064195823</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110867000" />
+    <option name="totallyTimeSpent" value="120992000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="768" extended-state="0" />
+    <frame x="-1920" y="-218" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -809,8 +830,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14455445" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13099042" sideWeight="0.31590655" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.042979944" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25931233" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15634441" sideWeight="0.6840934" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17920792" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11022364" sideWeight="0.6840934" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10990099" sideWeight="0.4978701" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -866,7 +887,8 @@
     <MESSAGE value="display datas ranged for 7days on weekly component" />
     <MESSAGE value="test for contribution" />
     <MESSAGE value="chagned weekly.vue file's html,&#10;added color matching function with mood &#10;( when 'happy' was chosen, circle's color will be yellow,&#10;  when 'sulky' was chosen, circle's color will be green,&#10;  when 'naughty' was chosen, circle's color will be blue,&#10;  when 'hungry' was chosen, circle's color will be red)" />
-    <option name="LAST_COMMIT_MESSAGE" value="chagned weekly.vue file's html,&#10;added color matching function with mood &#10;( when 'happy' was chosen, circle's color will be yellow,&#10;  when 'sulky' was chosen, circle's color will be green,&#10;  when 'naughty' was chosen, circle's color will be blue,&#10;  when 'hungry' was chosen, circle's color will be red)" />
+    <MESSAGE value="implemented 'change', 'delete' feature for today&#10;(when change button from today hit, card would be flipped, user can check what he wrote 'today' and change it on input card)" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented 'change', 'delete' feature for today&#10;(when change button from today hit, card would be flipped, user can check what he wrote 'today' and change it on input card)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1059,16 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Today.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="70" column="48" lean-forward="false" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="48" />
-          <folding>
-            <element signature="e#628#656#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Login.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -1099,16 +1111,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/InputCard.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="50" column="10" lean-forward="false" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
-          <folding>
-            <element signature="e#1554#1576#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/FireBaseTest.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -1121,16 +1123,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="19" />
+        <state relative-caret-position="300">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Today.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="74" column="51" lean-forward="false" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
+          <folding>
+            <element signature="e#759#787#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/InputCard.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="61" column="40" lean-forward="false" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
+          <folding>
+            <element signature="e#1523#1545#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/firebaseService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+        <state relative-caret-position="255">
+          <caret line="88" column="44" lean-forward="false" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -1139,8 +1161,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Main.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="112" column="36" lean-forward="false" selection-start-line="112" selection-start-column="36" selection-end-line="112" selection-end-column="36" />
+        <state relative-caret-position="165">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
             <element signature="e#948#969#0" expanded="true" />
           </folding>
@@ -1149,8 +1171,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Week.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        <state relative-caret-position="510">
+          <caret line="91" column="20" lean-forward="true" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
           <folding />
         </state>
       </provider>

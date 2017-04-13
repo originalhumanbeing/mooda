@@ -4,11 +4,13 @@
     <ul class="weeklyItems">
       <li :class="item.matchingColor" v-for="item of weeklyItems">
         <md-card>
-          <span>{{item.date}}</span>
-          <md-card-media>
-            <img :src="item.emojiSrc" alt="">
-          </md-card-media>
-          <md-card-content>{{item.comment}}</md-card-content>
+          <span class="weeklyItemsDate">{{item.date}}</span>
+          <div class="weeklyContent">
+            <md-card-media>
+              <img class="emojiPic" :src="item.emojiSrc" alt="">
+            </md-card-media>
+            <md-card-content>{{item.comment}}</md-card-content>
+          </div>
         </md-card>
       </li>
     </ul>
@@ -27,40 +29,91 @@
   *, *::before, *::after
     box-sizing: border-box
 
-  .weekly-title
-    background: linear-gradient(135deg, #3549fc 0, #a322ef 50%, #fc3fd8 100%)
-    width: 150px
-    padding: 15px
+  .week
+    background: #fff
+    padding: 60px
+    border-radius: 5px
+    overflow: auto
+    box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12)
+    /*display: flex*/
+    /*flex-direction: column*/
+    /*justify-content: center*/
+    /*align-items: center*/
+    position: relative
 
+  .weekly-title
+    background: lightcoral
+    padding: 10px 30px
+    position: absolute
+    top: -10px
+    left: 30px
+    z-index: 100
+    font-weight: 600
+    font-size: 1.2em
+    // daily의 margin에 가려서 위에가 짤려 보임 ㅠㅠ..
 
   ul
     list-style: none
     padding-left: 0
-    border-left: 3px solid  #3549fc
+    width: 2px
+    margin: 0 auto
+    background: lightcoral
 
+  // min-width overrides width, max-width
   li
     padding-left: 30px
+    min-width: 200px
+    postion: relative
 
   li::before
     content: ''
+    position: absolute
+    left: 395px
     width: 10px
     height: 10px
-    border: 15px solid #a322ef
     border-radius: 50%
-    position: relative
-    left: -120px
-    top: 150px
-    z-index: 100
 
   .happy::before
-    border-color: yellow
+    background: yellow
 
   .sulky::before
-    border-color: green
+    background: green
 
   .naughty::before
-    border-color: blue
+    background: blue
 
   .hungry::before
-    border-color: red
+    background: red
+
+  // 카드에 화살표 붙이는 부분
+  //.md-card
+    position: relative
+
+  //.md-card::before
+    content: ''
+    width: 0
+    height: 0
+    border-top: 10px solid transparent
+    border-bottom: 10px solid transparent
+    border-right: 20px solid lightcoral
+    position: absolute
+    left: -8px
+
+  li:nth-child(odd) .md-card
+    left: -230px
+
+  .md-card .md-card-media img
+    width: 50%
+
+  // 주간 날짜도 2017년 4월 17일 이런 식으로 가져오기
+  .weeklyItemsDate
+    padding: 10px
+    font-weight: 500
+    font-size: 1.1em
+
+  .weeklyContent
+    display: flex
+    justify-content: center
+    align-items: center
+
 </style>

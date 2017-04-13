@@ -1,19 +1,23 @@
 <template>
   <div class="today">
     <div class="daily">
-      <div class="daily-title">My Stuffs</div>
+      <div class="daily-title">Today</div>
       <md-card class="dailyCard">
-        <span>{{dailyItem.date}}</span>
-        <md-card-media>
-          <div :class="dailyEmotion">
-            <img class="dailyEmoji" :src="this.emotion_src" alt="">
-          </div>
-        </md-card-media>
-        <md-card-content>
-          {{dailyItem.comment}}
-        </md-card-content>
-        <md-button @click.native="changeDaily">Change</md-button>
-        <md-button @click.native="deleteDaily">Delete</md-button>
+        <span class="dailyDate">{{dailyItem.date}}</span>
+        <div class="dailyContent">
+          <md-card-media>
+            <div :class="dailyEmotion">
+              <img class="dailyEmoji" :src="this.emotion_src" alt="">
+            </div>
+          </md-card-media>
+          <md-card-content>
+            {{dailyItem.comment}}
+          </md-card-content>
+        </div>
+        <div class="btn-group">
+          <md-button @click.native="changeDaily">Change</md-button>
+          <md-button @click.native="deleteDaily">Delete</md-button>
+        </div>
       </md-card>
     </div>
   </div>
@@ -83,35 +87,57 @@
 </script>
 
 <style lang="sass" scoped rel="stylesheet/sass">
-  body
-    background: #fff
+  .daily
+    margin: 60px auto
+    width: 800px
+    min-height: 400px
+    position: relative
 
-    .today
-      background: #e6e6e6
-      border-top-left-radius: 10px
-      border-top-right-radius: 10px
+  .daily-title
+    background: powderblue
+    padding: 10px 30px
+    position: absolute
+    top: -10px
+    left: 30px
+    z-index: 10
+    font-weight: 600
+    font-size: 1.2em
 
-    .daily
-      padding: 20px
-      margin: 0 auto
-      position: relative
+  .dailyCard
+    padding: 30px
+    border-radius: 5px
 
-    .daily-title
-      padding: 10px
-      background: orange
-      position: absolute
-      top: 0
-      left: 30px
-      z-index: 10
+  .dailyEmoji
+    width: 150px
 
-    .dailyCard
-      padding: 30px
-      border-radius: 5px
+  .dailyDate
+    font-weight: 500
+    font-size: 1.2em
+    text-align: left
+    margin-top: 8px
 
-    .dailyEmoji
-      width: 150px
+  .dailyContent
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: row
 
-    .md-card .md-card-media img
-      width: 150px
+  .md-card .md-card-media img
+    width: 150px
+    height: 150px
+
+  .md-card-content
+    width: 480px
+    margin-left: 5%
+    margin-bottom: 15px
+    background: lighten(lightgray, 13%)
+    border-radius: 5px
+
+  .btn-group
+    display: flex
+    align-content: center
+    justify-content: flex-end
+    & md-button md-default-theme
+      background: lightgray
 
 </style>

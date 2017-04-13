@@ -51,10 +51,6 @@
         isUpdate : false
       }
     },
-    // 자식이 부모 걸 받아올 때 prop 사용
-    // 동적 prop: 부모가 data로 가지고 있는 부분을
-    // 자식이 prop으로 받을 수 있음
-    // 자식이 prop으로 가지고 있는 것을 bind해놔야 부모 것을 동적으로 받을 수 있음
     components: {
       Modal,
       Login,
@@ -118,15 +114,6 @@
 <style lang="sass" scoped rel="stylesheet/sass">
   *, *::before, *::after
     box-sizing: border-box
-
-  #member *
-    margin: 20px
-
-  .flex-wrapper
-    width: 1000px
-    display: flex
-    align-items: flex-start
-    justify-content: center
 
   .modal
     z-index: 10

@@ -10,19 +10,22 @@ export default {
 }
 </script>
 
-<style>
-html {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
+<style lang="sass" rel="stylesheet/sass">
+html
+  display: flex
+  justify-content: center
+  align-content: center
+  background: lavender
+  font-size: 16px
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  /*margin-top: 60px;*/
-}
+body.md-theme-default
+  background: transparent !important
+
+#app
+  font-family: 'Avenir', Helvetica, Arial, sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-align: center
+  color: #2c3e50
+
 </style>
