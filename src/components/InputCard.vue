@@ -6,14 +6,13 @@
           <div class="md-title">Day Update</div>
           <div class="md-subhead">Dayback</div>
         </md-card-header>
-
         <form novalidate @submit.stop.prevent="submit">
           <md-input-container class="input-area">
             <md-input-container class="input-area">
               <label>How are you doing?</label>
               <md-textarea v-model="user_input.comment"></md-textarea>
             </md-input-container>
-            <md-layout md-row-large md-flex="75" class="emoji-group">
+            <md-layout class="emoji-group">
               <a href="#" class="happy" @click.prevent="selectEmoji(4)"
                  :class="{'active' : user_input.emoji === 4}"><img src="../assets/happy.png" alt=""></a>
               <a href="#" class="sulky" @click.prevent="selectEmoji(3)"
@@ -42,12 +41,13 @@
 
   export default {
     name: 'input-card',
+    props:['comment', 'emoji', 'isUpdate'],
     data () {
       return {
         user_input: {
           date: new Date(),
-          comment: '',
-          emoji: ''
+          comment: this.comment,
+          emoji: this.emoji
         },
       }
     },
@@ -57,8 +57,15 @@
         console.log(emoji);
       },
 
+      // 이미 내용 있으면 수정인지 아닌지 분기해서 만들어야 함
+
       createEmoji() {
-        firebaseService.createEmoji({
+        let create = firebaseService.createEmoji;
+        if (this.isUpdate) {
+            create = firebaseService.updateEmoji;
+        }
+
+        create({
           uid: Vue.thisUser.uid,
           emoji: this.user_input.emoji,
           comment: this.user_input.comment,

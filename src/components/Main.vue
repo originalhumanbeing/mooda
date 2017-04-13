@@ -1,14 +1,24 @@
 <template>
   <div id="member">
-    <transition enter-active-class="animated flipInY" leave-active-class="animated flipOutY" duration="450"
-                mode="out-in" appear>
-      <component @changeDailyCard="changeDailyView" :is="component_selected"></component>
-    </transition>
-    <week></week>
+    <div class="flex-wrapper">
+      <transition enter-active-class="animated flipInY" leave-active-class="animated flipOutY" duration="450"
+                  mode="out-in" appear>
+        <component @changeDailyCard="changeDailyView"
+                   :comment="todayComment"
+                   :emoji="todayEmoji"
+                   :is-update="isUpdate"
+                   :is="component_selected">
+        </component>
+      </transition>
+      <week :weeklyItems="this.weeklyItems"></week>
+    </div>
     <modal v-if="popUpModal">
       <transition enter-active-class="animated flipInY" leave-active-class="animated flipOutY" duration="450"
                   mode="out-in" appear>
-        <component @changeMode="changeView" @closeModalView="closeModal" :is="modal_component_selected"></component>
+        <component @changeMode="changeView"
+                   @closeModalView="closeModal"
+                   :is="modal_component_selected">
+        </component>
       </transition>
     </modal>
   </div>
@@ -23,17 +33,22 @@
   import Today from './Today.vue'
   import firebaseService from '../service/firebaseService'
   import Week from './Week.vue'
+  import moment from 'moment/moment'
 
   export default {
     name: 'main',
     data () {
       return {
+        weeklyItems : [],
         popUpModal: false,
         showLogin: false,
         completeToday: false,
         modal_component_selected: 'login',
         component_selected: 'input-card',
-        showWeek: false
+        showWeek: false,
+        todayComment: '',
+        todayEmoji: '',
+        isUpdate : false
       }
     },
     // 자식이 부모 걸 받아올 때 prop 사용
@@ -49,6 +64,18 @@
       Week
     },
     methods: {
+      fetchDailyAndWeeklyEmojis() {
+        if(Vue.isLogined()) {
+          firebaseService.fetchEmoji({uid: Vue.thisUser.uid, date: new Date()}).then(r => {
+            if (r)
+              this.component_selected = 'today';
+          });
+          firebaseService.fetchEmojis({uid: Vue.thisUser.uid, baseDate: moment().add(-1, 'days').toDate(), range: 7})
+            .then(r => {
+              this.weeklyItems = r
+            });
+        }
+      },
       showModal(){
         console.log('showModal 실행됌');
         this.popUpModal = true;
@@ -60,12 +87,7 @@
         this.popUpModal = false;
         this.hideModalBtn = true;
 
-        if(Vue.isLogined())
-          firebaseService.fetchEmoji({uid: Vue.thisUser.uid, date: new Date()})
-            .then(r => {
-              if (r)
-                this.component_selected = 'today';
-            })
+        this.fetchDailyAndWeeklyEmojis();
       },
       changeView(){
         console.log('changeView 실행됌');
@@ -74,20 +96,21 @@
       changeDailyView(){
         console.log('changeDailyView 실행됌');
         this.component_selected = this.component_selected === 'input-card' ? 'today' : 'input-card';
+        firebaseService.fetchEmoji({uid: Vue.thisUser.uid, date: new Date()}).then(r => {
+          if (r) {
+            this.todayComment = r.comment;
+            this.todayEmoji = r.emoji;
+            this.isUpdate = true;
+          }
+        });
       }
     },
     created() {
       if (!Vue.isLogined()) {
         this.modal_component_selected = 'login';
         this.showModal();
-      } else {
-        firebaseService.fetchEmoji({uid: Vue.thisUser.uid, date: new Date()})
-          .then(r => {
-              console.log('today emoji', r)
-            if (r)
-              this.component_selected = 'today';
-          })
       }
+      this.fetchDailyAndWeeklyEmojis();
     }
   }
 </script>
@@ -96,20 +119,19 @@
   *, *::before, *::after
     box-sizing: border-box
 
-    #member
-      display: block
+  #member *
+    margin: 20px
 
-    #member *
-      /*display: block*/
-      margin: 20px
+  .flex-wrapper
+    width: 1000px
+    display: flex
+    align-items: flex-start
+    justify-content: center
 
-    .modal
-      z-index: 10
+  .modal
+    z-index: 10
 
-    .login-card,
-    .signup-card
-      z-index: 100
-
-    .md-card
-      display: block
+  .login-card,
+  .signup-card
+    z-index: 100
 </style>

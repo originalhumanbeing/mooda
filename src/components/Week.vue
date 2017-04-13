@@ -2,7 +2,7 @@
   <div class="week">
     <div class="weekly-title">Weekly</div>
     <ul class="weeklyItems">
-      <li :class="item.matchingColor" v-for="item of items">
+      <li :class="item.matchingColor" v-for="item of weeklyItems">
         <md-card>
           <span>{{item.date}}</span>
           <md-card-media>
@@ -17,65 +17,9 @@
 </template>
 
 <script>
-  import moment from 'moment';
-  import Vue from 'vue';
-  import firebaseService from '../service/firebaseService';
-
   export default {
     name: 'Week',
-    data () {
-      return {
-        items: []
-      }
-    },
-    methods: {
-      getEmojiImage(emoji) {
-        if (emoji == 4) {
-          return require('../assets/happy.png');
-        }
-        else if (emoji == 3) {
-          return require('../assets/sulky.png');
-        }
-        else if (emoji == 2) {
-          return require('../assets/naughty.png');
-        }
-        else if (emoji == 1) {
-          return require('../assets/hungry.png');
-        }
-        else
-          return '';
-      },
-      getMatchingColor(emoji) {
-        if (emoji == 4) {
-          return 'happy';
-        }
-        else if (emoji == 3) {
-          return 'sulky';
-        }
-        else if (emoji == 2) {
-          return 'naughty';
-        }
-        else if (emoji == 1) {
-          return 'hungry';
-        }
-        else
-          return '';
-      }
-    },
-    created(){
-      if (Vue.isLogined())
-        firebaseService.fetchEmojis({uid: Vue.thisUser.uid, baseDate: moment().add(-1, 'days').toDate(), range: 7})
-          .then(r => {
-            this.items = Object.keys(r).map(key => {
-              let item = {};
-              item.date = key;
-              Object.assign(item, r[key]);
-              item.emojiSrc = this.getEmojiImage(item.emoji);
-              item.matchingColor =  this.getMatchingColor(item.emoji);
-              return item
-            });
-          })
-    }
+    props : ['weeklyItems'],
   };
 </script>
 
@@ -88,6 +32,7 @@
     width: 150px
     padding: 15px
 
+
   ul
     list-style: none
     padding-left: 0
@@ -98,10 +43,12 @@
 
   li::before
     content: ''
+    width: 10px
+    height: 10px
     border: 15px solid #a322ef
     border-radius: 50%
     position: relative
-    left: -140px
+    left: -120px
     top: 150px
     z-index: 100
 

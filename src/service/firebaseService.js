@@ -45,7 +45,7 @@ export default {
       .then(r => {
         if (r)
           throw 'Already Exist Emoji';
-        date = moment(date).format('YYYYMMDD')
+        date = moment(date).format('YYYYMMDD');
         return db.ref(`daily/${uid}/${date}`).set({
           comment, emoji
         });
@@ -67,7 +67,10 @@ export default {
     assertIsInstanceOfDate(date);
     assertIsToday(date);
 
-    return this.createEmoji({uid, comment, emoji, date})
+    date = moment(date).format('YYYYMMDD');
+    return db.ref(`daily/${uid}/${date}`).set({
+      comment, emoji
+    });
   },
 
   deleteEmoji({uid, date}) {
@@ -89,6 +92,16 @@ export default {
         console.log(r.val());
         return r.val();
       })
+      .then(r => {
+        return Object.keys(r).map(key => {
+          let item = {};
+          item.date = key;
+          Object.assign(item, r[key]);
+          item.emojiSrc = getEmojiImage(item.emoji);
+          item.matchingColor =  getMatchingColor(item.emoji);
+          return item
+        });
+      })
   }
 }
 
@@ -101,5 +114,37 @@ function assertIsToday(date) {
   if (moment(date).format('YYYYMMDD') != moment().format('YYYYMMDD'))
     throw 'Not Today';
 }
+function getEmojiImage(emoji) {
+  if (emoji == 4) {
+    return require('../assets/happy.png');
+  }
+  else if (emoji == 3) {
+    return require('../assets/sulky.png');
+  }
+  else if (emoji == 2) {
+    return require('../assets/naughty.png');
+  }
+  else if (emoji == 1) {
+    return require('../assets/hungry.png');
+  }
+  else
+    return '';
+}
 
+function getMatchingColor(emoji) {
+  if (emoji == 4) {
+    return 'happy';
+  }
+  else if (emoji == 3) {
+    return 'sulky';
+  }
+  else if (emoji == 2) {
+    return 'naughty';
+  }
+  else if (emoji == 1) {
+    return 'hungry';
+  }
+  else
+    return '';
+}
 
