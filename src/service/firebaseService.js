@@ -35,13 +35,15 @@ export default {
     });
   },
 
+  fetchEmoji : fetchEmoji,
+
   createEmoji({uid, emoji, comment = '', date}) {
     if (!emoji || !uid || !date)
       throw 'Illegal Parameter';
     assertIsInstanceOfDate(date);
+    // console.log('fetchEmoji dd',this);
 
-
-    return this.fetchEmoji({uid, date})
+    return fetchEmoji({uid, date})
       .then(r => {
         if (r)
           throw 'Already Exist Emoji';
@@ -51,15 +53,6 @@ export default {
         });
       }).then(() => {
         return true;
-      });
-  },
-
-  fetchEmoji({uid, date}) {
-    assertIsInstanceOfDate(date);
-    date = moment(date).format('YYYYMMDD');
-    return db.ref(`daily/${uid}/${date}`).once('value')
-      .then(r => {
-        return r.val()
       });
   },
 
@@ -103,6 +96,15 @@ export default {
         });
       })
   }
+}
+
+function fetchEmoji({uid, date}) {
+  assertIsInstanceOfDate(date);
+  date = moment(date).format('YYYYMMDD');
+  return db.ref(`daily/${uid}/${date}`).once('value')
+    .then(r => {
+      return r.val()
+    });
 }
 
 function assertIsInstanceOfDate(date) {

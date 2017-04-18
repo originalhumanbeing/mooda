@@ -68,7 +68,11 @@
           });
           firebaseService.fetchEmojis({uid: Vue.thisUser.uid, baseDate: moment().add(-1, 'days').toDate(), range: 7})
             .then(r => {
-              this.weeklyItems = r
+//                console.log('weekly', r);
+              this.weeklyItems = r.map(item => {
+                item.date = moment(item.date, 'YYYYMMDD').format('YYYY년 M월 D일');
+                return item;
+              });
             });
         }
       },

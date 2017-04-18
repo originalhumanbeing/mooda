@@ -10,7 +10,7 @@
           <md-input-container class="input-area">
             <md-input-container>
               <label>How are you doing?</label>
-              <md-textarea v-model="user_input.comment"></md-textarea>
+              <md-textarea maxlength="100" v-model="user_input.comment"></md-textarea>
             </md-input-container>
             <div class="emoji-group">
               <a href="#" class="happy" @click.prevent="selectEmoji(4)"
